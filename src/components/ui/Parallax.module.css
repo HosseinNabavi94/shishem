@@ -1,0 +1,42 @@
+/* A background image that drifts slower than the page.
+   The layer is oversized so the drift never exposes an edge. */
+
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.layer {
+  position: absolute;
+  top: -12%;
+  right: 0;
+  left: 0;
+  height: 124%;
+  will-change: transform;
+}
+
+.layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Movement is opt-in per breakpoint: mobile keeps a static image because the
+   scroll cost is not worth the effect on a small viewport. */
+@media (max-width: 768px) {
+  .layer {
+    top: 0;
+    height: 100%;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    top: 0;
+    height: 100%;
+    transform: none !important;
+  }
+}

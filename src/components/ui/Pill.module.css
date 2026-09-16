@@ -1,0 +1,159 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--sh-r-pill);
+  cursor: pointer;
+  padding: 8px 8px 8px 20px;
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform var(--sh-dur-fast) var(--sh-ease),
+    box-shadow var(--sh-dur-fast) var(--sh-ease),
+    filter var(--sh-dur-fast) var(--sh-ease),
+    background-color var(--sh-dur-fast) var(--sh-ease);
+}
+
+.label {
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.icon {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--sh-r-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.4s var(--sh-ease);
+}
+
+.pill:hover .icon,
+.pill:focus-visible .icon {
+  transform: translate3d(-2px, -2px, 0) rotate(-8deg);
+}
+
+.pill:active {
+  transform: translateY(1px);
+}
+
+/* --- gold: the primary action ------------------------------------------- */
+.gold {
+  background: var(--sh-gold-gradient);
+  box-shadow: 0 8px 22px rgba(140, 107, 47, 0.35);
+}
+
+.gold .label {
+  color: var(--sh-jade-ink);
+  font-weight: 700;
+}
+
+.gold .icon {
+  background: #ffffff;
+  color: var(--sh-jade);
+}
+
+.gold:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 14px 32px rgba(140, 107, 47, 0.42);
+  transform: translateY(-2px);
+}
+
+/* --- jade: the secondary action ----------------------------------------- */
+.jade {
+  background: var(--sh-jade);
+}
+
+.jade .label {
+  color: var(--sh-text-invert);
+}
+
+.jade .icon {
+  background: var(--sh-gold-light);
+  color: var(--sh-jade-ink);
+}
+
+.jade:hover {
+  background: var(--sh-jade-mid);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(30, 64, 52, 0.28);
+}
+
+/* --- ghost: sits on glass panels over imagery --------------------------- */
+.ghost {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(226, 199, 126, 0.5);
+  padding: 7px 7px 7px 18px;
+}
+
+.ghost .label {
+  color: var(--sh-text-invert);
+}
+
+.ghost .icon {
+  background: var(--sh-gold-light);
+  color: var(--sh-jade-ink);
+}
+
+.ghost:hover {
+  background: rgba(226, 199, 126, 0.2);
+  transform: translateY(-2px);
+}
+
+/* --- block: full-width booking action ----------------------------------- */
+.block {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 13px;
+  background: var(--sh-gold-gradient);
+}
+
+.block .label {
+  color: var(--sh-jade-ink);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.block:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(140, 107, 47, 0.32);
+}
+
+/* --- underlined text link ------------------------------------------------ */
+.textLink {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding-bottom: 4px;
+  color: var(--sh-gold-dark);
+  border-bottom: 1px solid var(--sh-gold);
+  background-image: linear-gradient(var(--sh-jade), var(--sh-jade));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: right 100%;
+  transition:
+    color var(--sh-dur-fast) var(--sh-ease),
+    background-size 0.45s var(--sh-ease);
+}
+
+.textLink:hover {
+  color: var(--sh-jade);
+  background-size: 100% 1px;
+}
+
+.textLinkLight {
+  color: var(--sh-text-invert);
+  border-bottom-color: var(--sh-gold-light);
+  background-image: linear-gradient(var(--sh-gold-light), var(--sh-gold-light));
+}
+
+.textLinkLight:hover {
+  color: var(--sh-gold-light);
+}

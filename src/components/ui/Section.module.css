@@ -1,0 +1,76 @@
+.section {
+  padding: clamp(64px, 9vw, 120px) var(--sh-gutter);
+  position: relative;
+}
+
+/* Bands that follow another band drop their top padding, matching the design. */
+.tight {
+  padding-top: 0;
+}
+
+.compact {
+  padding: clamp(56px, 8vw, 96px) var(--sh-gutter);
+}
+
+.warm {
+  background: var(--sh-bg-alt);
+}
+
+.center {
+  text-align: center;
+}
+
+.headingWrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.headingWrapCenter {
+  max-width: 1180px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(26px, 3.6vw, 42px);
+  font-weight: 700;
+  color: var(--sh-text);
+  line-height: 1.4;
+}
+
+.titleLarge {
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+.lead {
+  margin: 14px 0 0;
+  max-width: 560px;
+  color: var(--sh-text-muted);
+  font-size: 14px;
+  line-height: 2.1;
+}
+
+.leadCenter {
+  margin: 16px auto 0;
+  max-width: 620px;
+  font-size: 15px;
+}
+
+/* Heading + lead sitting on the same baseline, as in the magazine teaser. */
+.split {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.split .title {
+  max-width: 460px;
+}
+
+.split .lead {
+  max-width: 420px;
+  margin: 0;
+}
