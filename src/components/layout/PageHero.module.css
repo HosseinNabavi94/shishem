@@ -1,0 +1,86 @@
+.hero {
+  position: relative;
+  height: 46vh;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.short {
+  height: 44vh;
+  min-height: 320px;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(12, 26, 21, 0.5);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 var(--sh-gutter);
+}
+
+.title {
+  margin: 0;
+  color: var(--sh-text-invert);
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 700;
+  /* One orchestrated entrance on load — no scroll trigger needed here. */
+  animation: heroTitle 1.05s var(--sh-ease-soft) 0.15s both;
+}
+
+.titleShort {
+  font-size: clamp(32px, 5vw, 60px);
+}
+
+.rule {
+  display: block;
+  width: 0;
+  height: 1px;
+  margin: 20px auto 0;
+  background: var(--sh-gold-light);
+  animation: heroRule 1.1s var(--sh-ease-soft) 0.55s both;
+}
+
+@keyframes heroTitle {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+    letter-spacing: 6px;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    letter-spacing: normal;
+  }
+}
+
+@keyframes heroRule {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 78px;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title,
+  .rule {
+    animation: none;
+  }
+
+  .rule {
+    width: 78px;
+  }
+}

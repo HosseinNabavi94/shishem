@@ -1,0 +1,193 @@
+.masthead {
+  background: var(--sh-jade);
+  padding: 150px var(--sh-gutter) 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* A faint gold wash keeps the flat jade block from feeling inert. */
+.masthead::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 60%;
+  height: 180%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(226, 199, 126, 0.14),
+    rgba(226, 199, 126, 0) 68%
+  );
+  pointer-events: none;
+}
+
+.mastheadInner {
+  max-width: var(--sh-max);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  margin: 0;
+  max-width: 700px;
+  color: var(--sh-text-invert);
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1.35;
+  animation: postTitle 1s var(--sh-ease-soft) 0.1s both;
+}
+
+.meta {
+  margin-top: 22px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  color: var(--sh-gold-light);
+  font-size: 13px;
+  animation: postTitle 1s var(--sh-ease-soft) 0.28s both;
+}
+
+@keyframes postTitle {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- lead image overlaps the masthead ----------------------------------- */
+
+.coverWrap {
+  margin-top: -60px;
+  padding: 0 var(--sh-gutter);
+  position: relative;
+  z-index: 2;
+}
+
+.cover {
+  max-width: var(--sh-max);
+  margin: 0 auto;
+  border-radius: var(--sh-r-lg);
+  overflow: hidden;
+  position: relative;
+  height: clamp(240px, 40vw, 460px);
+  box-shadow: 0 28px 60px rgba(12, 26, 21, 0.18);
+}
+
+.cover img {
+  object-fit: cover;
+}
+
+/* --- body ---------------------------------------------------------------- */
+
+.layout {
+  max-width: var(--sh-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 60px;
+}
+
+.article {
+  grid-column: span 2;
+  min-width: 280px;
+}
+
+.paragraph {
+  margin: 0 0 22px;
+  color: var(--sh-text-body);
+  font-size: 15px;
+  line-height: 2.4;
+  /* Persian body text reads better a little shy of 80 characters. */
+  max-width: 68ch;
+}
+
+.paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.articleMeta {
+  margin-top: 34px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  color: var(--sh-gold-dark);
+  font-size: 13px;
+}
+
+/* --- sidebar ------------------------------------------------------------- */
+
+.sidebarTitle {
+  margin: 0 0 22px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.latest {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.latestItem {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  color: inherit;
+}
+
+.latestThumb {
+  position: relative;
+  width: 84px;
+  height: 64px;
+  border-radius: var(--sh-r-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.latestThumb img {
+  object-fit: cover;
+  transition: transform 0.9s var(--sh-ease-soft);
+}
+
+.latestItem:hover .latestThumb img {
+  transform: scale(1.08);
+}
+
+.latestTitle {
+  font-size: 14.5px;
+  color: var(--sh-jade);
+  line-height: 1.8;
+  transition: color var(--sh-dur-fast) var(--sh-ease);
+}
+
+.latestItem:hover .latestTitle {
+  color: var(--sh-gold-dark);
+}
+
+.latestDate {
+  font-size: 12px;
+  color: var(--sh-gold-dark);
+  margin-top: 6px;
+}
+
+@media (max-width: 900px) {
+  .article {
+    grid-column: span 1;
+  }
+
+  .layout {
+    gap: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .title,
+  .meta {
+    animation: none;
+  }
+}
